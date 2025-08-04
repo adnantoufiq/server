@@ -10,7 +10,7 @@ async function bootstrap() {
   app.use(helmet());
   app.use(cors());  // Now works correctly
   
-  await app.listen(3001);
+  await app.listen(3000);
   console.log(`Application running on ${await app.getUrl()}`);
 }
 bootstrap();
