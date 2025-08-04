@@ -18,4 +18,7 @@ export class Murmur {
 
   @OneToMany(() => Like, (like) => like.murmur)
   likes: Like[];
+
+  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
+  createdAt: Date;
 }
