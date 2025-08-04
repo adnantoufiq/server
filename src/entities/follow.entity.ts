@@ -17,10 +17,22 @@ export class Follow {
   @JoinColumn({ name: 'followingId' })
   following: User;
 
-  @Column({ 
+    @Column({
     name: 'created_at',
     type: 'timestamp',
-    default: () => 'CURRENT_TIMESTAMP'
+    default: () => 'CURRENT_TIMESTAMP',
+    precision: 0, // Remove fractional seconds
   })
   createdAt: Date;
+
+  // Optional: Add updatedAt if you need to track when relationships change
+  @Column({
+    name: 'updated_at',
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP',
+    onUpdate: 'CURRENT_TIMESTAMP',
+    precision: 0,
+    nullable: true,
+  })
+  updatedAt?: Date;
 }

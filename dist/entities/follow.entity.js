@@ -37,10 +37,22 @@ __decorate([
     (0, typeorm_1.Column)({
         name: 'created_at',
         type: 'timestamp',
-        default: () => 'CURRENT_TIMESTAMP'
+        default: () => 'CURRENT_TIMESTAMP',
+        precision: 0,
     }),
     __metadata("design:type", Date)
 ], Follow.prototype, "createdAt", void 0);
+__decorate([
+    (0, typeorm_1.Column)({
+        name: 'updated_at',
+        type: 'timestamp',
+        default: () => 'CURRENT_TIMESTAMP',
+        onUpdate: 'CURRENT_TIMESTAMP',
+        precision: 0,
+        nullable: true,
+    }),
+    __metadata("design:type", Date)
+], Follow.prototype, "updatedAt", void 0);
 exports.Follow = Follow = __decorate([
     (0, typeorm_1.Entity)('follows')
 ], Follow);

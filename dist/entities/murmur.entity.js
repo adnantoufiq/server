@@ -32,6 +32,10 @@ __decorate([
     (0, typeorm_1.OneToMany)(() => like_entity_1.Like, (like) => like.murmur),
     __metadata("design:type", Array)
 ], Murmur.prototype, "likes", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' }),
+    __metadata("design:type", Date)
+], Murmur.prototype, "createdAt", void 0);
 exports.Murmur = Murmur = __decorate([
     (0, typeorm_1.Entity)('murmurs')
 ], Murmur);
