@@ -21,25 +21,21 @@ __decorate([
     __metadata("design:type", Number)
 ], Like.prototype, "id", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ name: 'userId' }) // Explicitly maps to your DB column
-    ,
+    (0, typeorm_1.Column)({ name: 'userId' }),
     __metadata("design:type", Number)
 ], Like.prototype, "userId", void 0);
 __decorate([
     (0, typeorm_1.ManyToOne)(() => user_entity_1.User, (user) => user.likes),
-    (0, typeorm_1.JoinColumn)({ name: 'userId' }) // Links to the existing column
-    ,
+    (0, typeorm_1.JoinColumn)({ name: 'userId' }),
     __metadata("design:type", user_entity_1.User)
 ], Like.prototype, "user", void 0);
 __decorate([
-    (0, typeorm_1.Column)({ name: 'murmurId' }) // Explicitly maps to your DB column
-    ,
+    (0, typeorm_1.Column)({ name: 'murmurId' }),
     __metadata("design:type", Number)
 ], Like.prototype, "murmurId", void 0);
 __decorate([
     (0, typeorm_1.ManyToOne)(() => murmur_entity_1.Murmur, (murmur) => murmur.likes),
-    (0, typeorm_1.JoinColumn)({ name: 'murmurId' }) // Links to the existing column
-    ,
+    (0, typeorm_1.JoinColumn)({ name: 'murmurId' }),
     __metadata("design:type", murmur_entity_1.Murmur)
 ], Like.prototype, "murmur", void 0);
 exports.Like = Like = __decorate([

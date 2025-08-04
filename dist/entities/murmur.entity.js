@@ -13,7 +13,6 @@ exports.Murmur = void 0;
 const typeorm_1 = require("typeorm");
 const user_entity_1 = require("./user.entity");
 const like_entity_1 = require("./like.entity");
-// Rest of your code...
 let Murmur = class Murmur {
 };
 exports.Murmur = Murmur;

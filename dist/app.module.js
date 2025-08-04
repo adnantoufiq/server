@@ -21,31 +21,28 @@ exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
-            // Load environment variables
             config_1.ConfigModule.forRoot({
                 isGlobal: true,
                 envFilePath: '.env',
             }),
-            // Database configuration
             typeorm_1.TypeOrmModule.forRootAsync({
                 imports: [config_1.ConfigModule],
                 useFactory: (config) => ({
                     type: 'mysql',
-                    host: config.get('DB_HOST', 'localhost'), // Fallback value
+                    host: config.get('DB_HOST', 'localhost'),
                     port: config.get('DB_PORT', 3306),
                     username: config.get('DB_USERNAME', 'docker'),
                     password: config.get('DB_PASSWORD', 'docker'),
                     database: config.get('DB_NAME', 'test'),
-                    entities: [user_entity_1.User, murmur_entity_1.Murmur, like_entity_1.Like, follow_entity_1.Follow], // All entities
-                    synchronize: config.get('NODE_ENV') !== 'production', // Auto-sync in dev
+                    entities: [user_entity_1.User, murmur_entity_1.Murmur, like_entity_1.Like, follow_entity_1.Follow],
+                    synchronize: config.get('NODE_ENV') !== 'production',
                     retryAttempts: 5,
                     retryDelay: 3000,
                     logging: config.get('NODE_ENV') === 'development',
-                    namingStrategy: new typeorm_2.DefaultNamingStrategy(), // Keeps original field names
+                    namingStrategy: new typeorm_2.DefaultNamingStrategy(),
                 }),
                 inject: [config_1.ConfigService],
             }),
-            // Register repositories
             typeorm_1.TypeOrmModule.forFeature([user_entity_1.User, murmur_entity_1.Murmur, like_entity_1.Like, follow_entity_1.Follow]),
         ],
     })
